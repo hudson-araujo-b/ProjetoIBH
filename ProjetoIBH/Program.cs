@@ -1,4 +1,9 @@
+using ProjetoIBH.Interfaces;
+using ProjetoIBH.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -14,6 +19,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
